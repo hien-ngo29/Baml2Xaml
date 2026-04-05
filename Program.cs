@@ -3325,10 +3325,8 @@ namespace Baml2Xaml {
         }
 
         static void Main(string[] args) {
-            Console.WriteLine("Por favor, entradar una linea por el archivo BAML");
-            string path = Console.ReadLine();
-            string nuevopath = path.Substring(0, path.Length - (new string("baml")).Length) + "xaml";
-            StreamWriter sw = new StreamWriter(nuevopath, true);
+            string path = args[0];
+            StreamWriter sw = new StreamWriter(path, true);
             sw.WriteLine(CreateXaml(path));
             sw.Close();
             sw.Dispose();
