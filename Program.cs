@@ -3325,11 +3325,16 @@ namespace Baml2Xaml {
         }
 
         static void Main(string[] args) {
-            string path = args[0];
-            StreamWriter sw = new StreamWriter(path, true);
-            sw.WriteLine(CreateXaml(path));
-            sw.Close();
-            sw.Dispose();
+            if (args.Length <= 0) {
+                Console.WriteLine("Usage: Baml2Xaml [path/to/file.xaml]");
+            }
+            else {
+                string path = args[0];
+                StreamWriter sw = new StreamWriter(path, true);
+                sw.WriteLine(CreateXaml(path));
+                sw.Close();
+                sw.Dispose();
+            }
         }
     }
 }
